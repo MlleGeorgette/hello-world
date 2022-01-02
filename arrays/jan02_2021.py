@@ -2,7 +2,9 @@
 This tutorial shows the difference between a list and an array.
 A list is useful for storing simple data where no mathematical calculation is expected.
 However, arrays are more efficient for storing large datasets and for performing calculations.
-Source: https://learnpython.com/blog/python-array-vs-list/
+Sources:
+https://learnpython.com/blog/python-array-vs-list/
+https://www.youtube.com/watch?v=mOZ0UCeuRX4
 """
 import array as arr
 import numpy as np
@@ -35,3 +37,13 @@ for i in range(len(list_1)):
     division.append(result)
 print(division)
 print(type(division))
+
+# Creating an empty array
+empty_array1 = np.empty(4)
+print(empty_array1)
+
+empty_array2 = np.empty([3, 3])
+print(empty_array2)
+
+zero_array = np.zeros(4)
+print(zero_array)
