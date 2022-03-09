@@ -1,4 +1,5 @@
 """Tutorial source: https://realpython.com/python-gui-tkinter/"""
+import re
 import tkinter as gui
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
@@ -29,7 +30,10 @@ def save_file():
 
 
 def count(event):
-    lbl_char_count["text"] = f"Characters:\n ", str(len(text_box.get("1.0", "end-1c")))
+    words = text_box.get("1.0", "end-1c")
+    w_count = len(re.findall('\w+', words))
+    lbl_word_count["text"] = "Word count:\n " + str(w_count)
+    lbl_char_count["text"] = "Characters:\n " + str(len(words))
 
 
 window = gui.Tk()
@@ -41,13 +45,15 @@ window.columnconfigure(1, minsize=600, weight=1)
 
 fr_buttons = gui.Frame(master=window, bg='#404d44')
 btn_open = gui.Button(master=fr_buttons, text="OPEN",
-                      width=10, bg='#e6f0e9', command=open_file)
+                      width=10, bg='#91a18d', command=open_file)
 btn_save = gui.Button(master=fr_buttons, text="SAVE AS",
-                      width=10, bg='#e6f0e9', command=save_file)
+                      width=10, bg='#91a18d', command=save_file)
+lbl_word_count = gui.Label(master=fr_buttons, text="Words: ")
 lbl_char_count = gui.Label(master=fr_buttons, text="Characters: ")
 btn_open.grid(row=1, column=0, sticky="nsew", padx=5, pady=5)
 btn_save.grid(row=2, column=0, sticky="nsew", padx=5, pady=10)
-lbl_char_count.grid(row=4, column=0, sticky="nsew", padx=5, pady=5)
+lbl_word_count.grid(row=4, column=0, sticky="nsew", padx=5, pady=5)
+lbl_char_count.grid(row=6, column=0, sticky="nsew", padx=5, pady=5)
 fr_buttons.grid(row=0, column=0, sticky="ns")
 
 text_box = gui.Text(master=window, bg='#e6f0e9')
