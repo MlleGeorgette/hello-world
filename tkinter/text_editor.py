@@ -38,7 +38,7 @@ def count(event):
 
 
 def change_font():
-    font_list = ["Helvetica 12 bold", "Verdana 16", "Cambria 8 bold"]
+    font_list = ["Helvetica 12 bold", "Verdana 20", "Cambria 8 bold"]
     font = random.choice(font_list)
     text_box['font'] = f"{font}"
     lbl_font['text'] = f"Font:\n " + str(font)
@@ -46,7 +46,6 @@ def change_font():
 
 window = gui.Tk()
 window.title("Text Editor")
-window.iconbitmap("yawdie_code_logo.ico")
 window.configure(bg='#404d44')
 window.rowconfigure(0, minsize=600, weight=1)
 window.columnconfigure(1, minsize=600, weight=1)
@@ -56,8 +55,8 @@ btn_open = gui.Button(master=fr_buttons, text="OPEN",
                       width=10, bg='#91a18d', command=open_file)
 btn_save = gui.Button(master=fr_buttons, text="SAVE AS",
                       width=10, bg='#91a18d', command=save_file)
-lbl_word_count = gui.Label(master=fr_buttons, text="Words: ")
-lbl_char_count = gui.Label(master=fr_buttons, text="Characters: ")
+lbl_word_count = gui.Label(master=fr_buttons, text="Words:\n0 ")
+lbl_char_count = gui.Label(master=fr_buttons, text="Characters:\n0 ")
 lbl_font = gui.Label(master=fr_buttons, text="Font:\nArial 12 ")
 btn_font = gui.Button(master=fr_buttons, text="CHANGE FONT",
                       width=10, bg='#91a18d', command=change_font)
