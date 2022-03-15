@@ -1,4 +1,3 @@
-"""Tutorial source: https://realpython.com/python-gui-tkinter/"""
 import re
 import tkinter as gui
 from tkinter.filedialog import askopenfilename, asksaveasfilename
@@ -38,7 +37,7 @@ def count(event):
 
 
 def change_font():
-    font_list = ["Helvetica 12 bold", "Verdana 20", "Cambria 8 bold"]
+    font_list = ["Helvetica 12 bold", "Verdana 20", "Cambria 8 bold", "Arial 12"]
     font = random.choice(font_list)
     text_box['font'] = f"{font}"
     lbl_font['text'] = f"Font:\n " + str(font)
@@ -61,7 +60,7 @@ lbl_font = gui.Label(master=fr_buttons, text="Font:\nArial 12 ")
 btn_font = gui.Button(master=fr_buttons, text="CHANGE FONT",
                       width=10, bg='#91a18d', command=change_font)
 
-# Add buttons and labels to frame1; add frame1 to window
+# Add buttons and labels to frame; add frame to window
 btn_open.grid(row=1, column=0, sticky="nsew", padx=5, pady=5)
 btn_save.grid(row=2, column=0, sticky="nsew", padx=5, pady=10)
 lbl_word_count.grid(row=4, column=0, sticky="nsew", padx=5, pady=5)
